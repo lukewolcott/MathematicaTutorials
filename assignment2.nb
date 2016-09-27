@@ -1,0 +1,824 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26133,        816]
+NotebookOptionsPosition[     24287,        754]
+NotebookOutlinePosition[     24642,        770]
+CellTagsIndexPosition[     24599,        767]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["Mathematica Assignment #2",
+  FontWeight->"Bold"],
+ "\n\nIn this assignment we\[CloseCurlyQuote]ll use Mathematica to do \
+implicit differentiation, and integration.  Then we\[CloseCurlyQuote]ll take \
+advantage of its programming abilities to create a program that finds roots \
+of functions using Newton\[CloseCurlyQuote]s Method.\n\n",
+ StyleBox["Due by 9am Friday 12/2. Submit your file using Blackboard.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.683643095746305*^9, 3.683643107540888*^9}, {
+  3.683643213923923*^9, 3.683643280387579*^9}, {3.683643814976431*^9, 
+  3.683643845902322*^9}}],
+
+Cell[TextData[{
+ StyleBox["A. Implicit Differentiation",
+  FontWeight->"Bold"],
+ "\n\nThe Mathematica function ",
+ StyleBox["D", "Input"],
+ " can also be used to do implicit differentiation, although the syntax is a \
+little ugly.  Rather than differentiate an expression, we differentiate a \
+whole equation.  Mathematica uses two equals signs in its equations.  And \
+then we need to tell it which variable is a function of what.  The expression\
+\n\n",
+ StyleBox["D[y, x, NonConstants -> {y}]", "Input"],
+ " \[LineSeparator]\nis Mathematica\[CloseCurlyQuote]s way of saying dy/dx or \
+y\[CloseCurlyQuote](x)."
+}], "Text",
+ CellChangeTimes->{{3.683643287852087*^9, 3.6836433054271393`*^9}, {
+  3.683644258019622*^9, 3.68364425841885*^9}, {3.683728502883009*^9, 
+  3.6837286940809813`*^9}, {3.6837287241897793`*^9, 3.6837287650057707`*^9}, {
+  3.683731086506543*^9, 3.6837311058722878`*^9}}],
+
+Cell[TextData[{
+ "1. First we use ",
+ StyleBox["D", "Input"],
+ " to differentiate the equation, then we use ",
+ StyleBox["Solve", "Input"],
+ " to solve for dy/dx.  Another useful piece of syntax: the percent symbol ",
+ StyleBox["%", "Input"],
+ " refers to the last line of output.  Look through the next lines of \
+input/output very carefully, and make sure you understand how the syntax \
+works.  What equation are we implicitly differentiating, and what is the \
+answer?"
+}], "Text",
+ CellChangeTimes->{{3.683728771891663*^9, 3.6837288378902082`*^9}, {
+  3.6837289458738003`*^9, 3.683728968225197*^9}, {3.6837290095758743`*^9, 
+  3.683729019961774*^9}, {3.6837311352026777`*^9, 3.683731144524006*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"D", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "^", "2"}], " ", "+", " ", 
+     RowBox[{"y", "^", "2"}]}], " ", "\[Equal]", " ", "9"}], ",", " ", "x", 
+   ",", " ", 
+   RowBox[{"NonConstants", "\[Rule]", 
+    RowBox[{"{", "y", "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6837288813074827`*^9, 3.683728902931848*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"2", " ", "x"}], "+", 
+   RowBox[{"2", " ", "y", " ", 
+    RowBox[{"D", "[", 
+     RowBox[{"y", ",", "x", ",", 
+      RowBox[{"NonConstants", "\[Rule]", 
+       RowBox[{"{", "y", "}"}]}]}], "]"}]}]}], "\[Equal]", "0"}]], "Output",
+ CellChangeTimes->{3.683728977840218*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{"%", ",", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{"y", ",", "x", ",", 
+     RowBox[{"NonConstants", "\[Rule]", 
+      RowBox[{"{", "y", "}"}]}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.683728980543919*^9, 3.683728997515092*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{"y", ",", "x", ",", 
+      RowBox[{"NonConstants", "\[Rule]", 
+       RowBox[{"{", "y", "}"}]}]}], "]"}], "\[Rule]", 
+    RowBox[{"-", 
+     FractionBox["x", "y"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.6837289982559433`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "2. Implicitly differentiate the following equations and solve for dy/dx.\n\n\
+(a) ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["x", "2"], "y"}], " ", "+", " ", 
+     SuperscriptBox["y", "3"]}], "=", " ", "4"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n(b) ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["x", "3"], "+", " ", 
+     SuperscriptBox["y", "3"]}], "=", " ", 
+    RowBox[{"6", "xy"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n(c) ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"sin", "(", 
+     RowBox[{"x", "+", "y"}], ")"}], " ", "=", " ", 
+    RowBox[{
+     SuperscriptBox["y", "2"], 
+     RowBox[{"cos", "(", "x", ")"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.683729033892074*^9, 3.683729042308642*^9}, {
+  3.683729082490719*^9, 3.6837292506076603`*^9}}],
+
+Cell[TextData[{
+ "3. Now let\[CloseCurlyQuote]s look at some plots of these functions.  The \
+way to implicitly plot an equation (that we can\[CloseCurlyQuote]t put into \
+y(x) = ... form) is using ",
+ StyleBox["ContourPlot", "Input"],
+ ".  Look at the help menu and examples for ",
+ StyleBox["ContourPlot", "Input"],
+ ", by evaluating the input ",
+ StyleBox["?ContourPlot", "Input"],
+ " and clicking >>.\n\nIn a single window, plot the equation in 1(b) and the \
+tangent line to the point (3,3).  You should figure out the equation of this \
+tangent line using your answer to 1(b), and paper and pencil.  Since you are \
+plotting implicitly with ",
+ StyleBox["ContourPlot", "Input"],
+ ", you want to feed it the whole equation, like ",
+ StyleBox["y == 2 x + 5", "Input"],
+ ", rather than just the right-hand side ",
+ StyleBox["2 x + 5", "Input"],
+ " as you do with ",
+ StyleBox["Plot", "Input"],
+ ".  Also, you\[CloseCurlyQuote]ll need to figure out how to plot two \
+equations in the same window, and what x and y bounds the window should have \
+so that you can see both curves."
+}], "Text",
+ CellChangeTimes->{{3.683729555010659*^9, 3.683729660432198*^9}, {
+  3.6837296936895247`*^9, 3.6837297201249247`*^9}, {3.6837297506284237`*^9, 
+  3.683730100104951*^9}, {3.6837312103748703`*^9, 3.683731210507092*^9}, {
+  3.683731241743205*^9, 3.683731246545088*^9}, {3.683735632747663*^9, 
+  3.6837356604380083`*^9}}],
+
+Cell[TextData[{
+ "4. Do the same thing with the equation in 1(c), and the tangent line to \
+that equation at the point (\[Pi], 0).  That is, calculate this tangent line \
+(by hand and using the results of 1(c)) and then plot both in the same window \
+using ",
+ StyleBox["ContourPlot", "Input"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.6837306630553207`*^9, 3.6837307514365387`*^9}}],
+
+Cell[TextData[{
+ StyleBox["B. Integration\n",
+  FontWeight->"Bold"],
+ "\nYes, Mathematica can calculate definite and indefinite integrals!  The \
+function to look up is ",
+ StyleBox["Integrate", "Input"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.6836442667473907`*^9, 3.683644269842737*^9}, {
+  3.683730794567668*^9, 3.683730850463078*^9}}],
+
+Cell["\<\
+5. Choose three definite integrals from old homework assignments, and \
+calculate them using Mathematica. \
+\>", "Text",
+ CellChangeTimes->{{3.6837308222943068`*^9, 3.683730822608801*^9}, {
+  3.6837308609907293`*^9, 3.683730912522973*^9}}],
+
+Cell["\<\
+6. Choose three indefinite integrals from old homework assignments, and \
+calculate them using Mathematica.\
+\>", "Text",
+ CellChangeTimes->{{3.683730920790306*^9, 3.68373094788387*^9}}],
+
+Cell[TextData[{
+ StyleBox["C. Newton\[CloseCurlyQuote]s Method for finding roots of functions",
+  FontWeight->"Bold"],
+ "\n\nNewton\[CloseCurlyQuote]s Method is a way of finding roots, or zeros, \
+of functions.  It is discussed in Section 3.6 of your textbook, which we are \
+skipping in class but you\[CloseCurlyQuote]re welcome to read.  If ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is a function, a root is a value ",
+ Cell[BoxData[
+  FormBox["c", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " so that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "c", ")"}], " ", "=", " ", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  These are the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "-intercepts of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "=", 
+    RowBox[{"f", "(", "x", ")"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".\n\nWe know how to find the roots of a quadratic.  But what about a cubic \
+like ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "x", ")"}], " ", "=", " ", 
+    RowBox[{
+     SuperscriptBox["x", "3"], "-", 
+     RowBox[{"2", "x"}], "-", "5"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "? Or what if we want to solve the equation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"cos", "(", "x", ")"}], " ", "=", " ", "x"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "? We can rewrite this as looking for the roots of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", "x", ")"}], "=", 
+    RowBox[{
+     RowBox[{"cos", "(", "x", ")"}], " ", "-", " ", "x"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", but how do we find these roots?\n\nNewton\[CloseCurlyQuote]s Method \
+starts with a function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and a guess ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "for a value close to a root of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  We make the tangent line ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["L", "1"], "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " at ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  ",
+ StyleBox["The key idea: since the tangent line to ",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox[" at ",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox[" is close to the graph of ",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox[", the root of the tangent line is close to the root of ",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox[".",
+  FontWeight->"Bold"],
+ "  We know how to find the root of a line -- this is just the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "-intercept and easy to find.  So we find the zero of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["L", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and take this as our second guess ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  In most cases, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " will be closer than ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " to the actual root of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and we can repeat (i.e. iterate) this process: ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "3"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "4"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ",... until our numbers stabilize and we\[CloseCurlyQuote]ve found (a \
+numerical approximation for) the root of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".\n\nThis method, or a version of it, is how calculators and computers find \
+roots.\n\nThe rest of this assignment leads you through making a Mathematica \
+function from scratch that automates this process."
+}], "Text",
+ CellChangeTimes->{{3.6836442861793203`*^9, 3.6836442957145023`*^9}, {
+  3.683730964957703*^9, 3.683731024126278*^9}, {3.683731413509842*^9, 
+  3.6837316430811567`*^9}, {3.683731675557378*^9, 3.683732154724119*^9}, {
+  3.683732234112694*^9, 3.683732336493104*^9}, {3.683735776085429*^9, 
+  3.683735839416901*^9}}],
+
+Cell[TextData[{
+ "1. First let\[CloseCurlyQuote]s look at an example.  Given the following \
+function and three of its values, what theorem from class guarantees that \
+there must be some root ",
+ Cell[BoxData[
+  FormBox["r", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "r", ")"}], "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", such that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", " ", "<", " ", "r", " ", "<", " ", "3"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "?"
+}], "Text",
+ CellChangeTimes->{{3.68373236837083*^9, 3.683732451244651*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", " ", 
+   RowBox[{
+    RowBox[{"x", "^", "3"}], " ", "-", " ", 
+    RowBox[{"2", "x"}], " ", "-", "5"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"f", "[", "1", "]"}]}], "Input",
+ CellChangeTimes->{{3.6837324582665873`*^9, 3.68373251094118*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "6"}]], "Output",
+ CellChangeTimes->{{3.6837324863653316`*^9, 3.68373251182073*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", "2", "]"}]], "Input",
+ CellChangeTimes->{{3.683732514655444*^9, 3.683732516029323*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellChangeTimes->{3.683732516772009*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", "3", "]"}]], "Input",
+ CellChangeTimes->{{3.683732518146325*^9, 3.683732519534245*^9}}],
+
+Cell[BoxData["16"], "Output",
+ CellChangeTimes->{3.6837325201056643`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "2. Let\[CloseCurlyQuote]s use ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "1"], "=", "2"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " as our first guess.  Calculate the equation for the tangent line ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["L", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " to ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " at ",
+ Cell[BoxData[
+  FormBox["2", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". (You can do this with pencil and paper).  Using ",
+ StyleBox["Plot", "Input"],
+ ", in a single window plot the graphs of ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["L", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " nearby the value 2, showing that the zero of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["L", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is close to the zero of ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  (If you want to refer to the function ",
+ StyleBox["f", "Input"],
+ " defined above, you need to first evaluate that cell where ",
+ StyleBox["f", "Input"],
+ " is defined.)"
+}], "Text",
+ CellChangeTimes->{{3.683732549296995*^9, 3.683732570773468*^9}, {
+  3.68373260522361*^9, 3.683732790499363*^9}, {3.6837339351994743`*^9, 
+  3.6837339634005947`*^9}, {3.683735878658702*^9, 3.6837358911458178`*^9}}],
+
+Cell[TextData[{
+ "3. On paper, find the zero of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["L", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and let\[CloseCurlyQuote]s make that our second guess ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". (Answer: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "2"], "=", "2.1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".)  Now, I claim that a formula for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " in terms of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " is given by:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "2"], "=", " ", 
+    RowBox[{
+     SubscriptBox["x", "1"], " ", "-", " ", 
+     FractionBox[
+      RowBox[{"f", "(", 
+       SubscriptBox["x", "1"], ")"}], 
+      RowBox[{
+       RowBox[{"f", "'"}], 
+       RowBox[{"(", 
+        SubscriptBox["x", "1"], ")"}]}]]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ",\nwhere that denominator is the derivative of ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " evaluated at the first guess.  Think about how you found ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["L", "1"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  Can you derive this formula?  Can you explain in words where it comes \
+from?"
+}], "Text",
+ CellChangeTimes->{{3.683732857559545*^9, 3.683732905514677*^9}, {
+  3.683733034517044*^9, 3.6837331875094633`*^9}, {3.68373322732489*^9, 
+  3.683733295050354*^9}}],
+
+Cell[TextData[{
+ "4. Using our second guess ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "2"], ","}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " iterate this process to find a third guess ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "3"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  "
+}], "Text",
+ CellChangeTimes->{{3.683733356726632*^9, 3.683733391042911*^9}}],
+
+Cell[TextData[{
+ "5. Using the third guess ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "3"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", find a fourth guess ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "4"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  Are the guesses converging to a stable value?"
+}], "Text",
+ CellChangeTimes->{{3.683733403826335*^9, 3.683733452651966*^9}}],
+
+Cell[TextData[{
+ "6. Now comes the hard part.  Look at the function ",
+ StyleBox["NextGuess", "Input"],
+ " that I define below.  Describe in words what this function does.  What are \
+its inputs?  What does it output?  (Hint: don\[CloseCurlyQuote]t get thrown \
+off by the ",
+ StyleBox["N", "Input"],
+ " function wrapper.  Look up the function ",
+ StyleBox["N", "Input"],
+ " to see what it does.)"
+}], "Text",
+ CellChangeTimes->{{3.683733638885442*^9, 3.683733698379512*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NextGuess", "[", 
+   RowBox[{"f_", ",", "xn_"}], "]"}], ":=", " ", 
+  RowBox[{"N", "[", 
+   RowBox[{"xn", " ", "-", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"f", "[", "xn", "]"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"f", "'"}], "[", "xn", "]"}], ")"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6837334612484913`*^9, 3.68373354044243*^9}}],
+
+Cell[TextData[{
+ "7. Evaluate ",
+ StyleBox["NextGuess[f, 2]", "Input"],
+ ".  For this to work, make sure you\[CloseCurlyQuote]ve evaluated (i.e. \
+clicked within and then hit SHIFT-ENTER) the cell above where we defined the \
+cubic function ",
+ StyleBox["f", "Input"],
+ ", and the cell where I define ",
+ StyleBox["NextGuess", "Input"],
+ ".  If you don\[CloseCurlyQuote]t actually run these cells, their contents \
+aren\[CloseCurlyQuote]t in Mathematica\[CloseCurlyQuote]s running memory."
+}], "Text",
+ CellChangeTimes->{{3.683733765875925*^9, 3.683733873087945*^9}, {
+   3.683734038013628*^9, 3.683734049505178*^9}, 3.68373416427417*^9}],
+
+Cell[TextData[{
+ "8. You should get 2.1.  Iterate with ",
+ StyleBox["NextGuess[f, 2.1]", "Input"],
+ ", etc, and see if you can get back your third and fourth guesses."
+}], "Text",
+ CellChangeTimes->{{3.683734083385601*^9, 3.683734159513361*^9}, {
+  3.6837346368490667`*^9, 3.683734637741185*^9}}],
+
+Cell[TextData[{
+ "9. Let\[CloseCurlyQuote]s start with a slightly different starting guess, \
+say ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", "1"], "=", "2.3"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  Use ",
+ StyleBox["NextGuess", "Input"],
+ " to calculate the second, third, and fourth guesses.  Are they converging \
+to a stable value?"
+}], "Text",
+ CellChangeTimes->{{3.68373483931425*^9, 3.6837348955083723`*^9}}],
+
+Cell[TextData[{
+ "10. Evaluate and explain what the following code does.  (Hint: the ",
+ StyleBox["100", "Input"],
+ " makes sure it doesn\[CloseCurlyQuote]t go forever.)"
+}], "Text",
+ CellChangeTimes->{{3.683734550398561*^9, 3.6837345550037394`*^9}, {
+  3.683734585297423*^9, 3.683734588362453*^9}, {3.683734644464779*^9, 
+  3.683734659187718*^9}, {3.683734899576364*^9, 3.683734900048046*^9}, {
+  3.683736390162264*^9, 3.683736398155595*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FixedPoint", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NextGuess", "[", 
+     RowBox[{"f", ",", "#"}], "]"}], "&"}], ",", "2", ",", "100"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.683736146855832*^9, 3.683736183797031*^9}, 
+   3.68373631444659*^9}],
+
+Cell[BoxData["2.0945514815423265`"], "Output",
+ CellChangeTimes->{
+  3.683734664873468*^9, {3.6837361805840273`*^9, 3.6837361844123993`*^9}, 
+   3.68373632375424*^9}]
+}, Open  ]],
+
+Cell["\<\
+10. Finally, can you make sense of the following function?  What are its \
+inputs? What is its output?\
+\>", "Text",
+ CellChangeTimes->{{3.683734712021332*^9, 3.683734730265049*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NewtonMethod", "[", 
+   RowBox[{"f_", ",", " ", "x1_"}], "]"}], ":=", " ", 
+  RowBox[{"FixedPoint", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NextGuess", "[", 
+      RowBox[{"f", ",", "#"}], "]"}], " ", "&"}], ",", " ", "x1", ",", " ", 
+    "10"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6837347393552637`*^9, 3.683734784597876*^9}, {
+  3.6837361937205687`*^9, 3.683736195385384*^9}}],
+
+Cell[TextData[{
+ "11. Evaluate ",
+ StyleBox["NewtonMethod", "Input"],
+ " for ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " twice, with initial guesses 2 and 2.3.  Then use the ",
+ StyleBox["Solve", "Input"],
+ " function to solve ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "x", ")"}], " ", "=", " ", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and see if your answers all agree.  (The function ",
+ StyleBox["N", "Input"],
+ " may be useful here.)"
+}], "Text",
+ CellChangeTimes->{{3.683734951689106*^9, 3.683735063732346*^9}, {
+  3.683735100444644*^9, 3.683735107200576*^9}}],
+
+Cell[TextData[{
+ "12. Use our new function ",
+ StyleBox["NewtonMethod", "Input"],
+ " to find all the solutions to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"cos", "(", "x", ")"}], " ", "=", " ", "x"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  (How do you rewrite this as a question about roots to a new function ",
+ StyleBox["g[x_]:= something", "Input"],
+ "?  How do you find all the roots, not just one of them?) Check your answers \
+using ",
+ StyleBox["Solve", "Input"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.683735194483897*^9, 3.683735195723896*^9}, {
+  3.6837354720043077`*^9, 3.6837355532339983`*^9}, {3.6837363353414097`*^9, 
+  3.683736348918371*^9}}]
+},
+WindowSize->{808, 911},
+WindowMargins->{{49, Automatic}, {159, Automatic}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 28, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 635, 12, 125, "Text"],
+Cell[1196, 34, 892, 17, 184, "Text"],
+Cell[2091, 53, 703, 14, 89, "Text"],
+Cell[CellGroupData[{
+Cell[2819, 71, 363, 10, 32, "Input"],
+Cell[3185, 83, 318, 9, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3540, 97, 286, 7, 32, "Input"],
+Cell[3829, 106, 329, 10, 49, "Output"]
+}, Open  ]],
+Cell[4173, 119, 947, 32, 112, "Text"],
+Cell[5123, 153, 1411, 28, 186, "Text"],
+Cell[6537, 183, 381, 8, 69, "Text"],
+Cell[6921, 193, 338, 9, 69, "Text"],
+Cell[7262, 204, 249, 5, 30, "Text"],
+Cell[7514, 211, 196, 4, 30, "Text"],
+Cell[7713, 217, 5553, 177, 426, "Text"],
+Cell[13269, 396, 663, 20, 50, "Text"],
+Cell[CellGroupData[{
+Cell[13957, 420, 321, 8, 54, "Input"],
+Cell[14281, 430, 112, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14430, 437, 120, 2, 32, "Input"],
+Cell[14553, 441, 87, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14677, 448, 120, 2, 32, "Input"],
+Cell[14800, 452, 73, 1, 32, "Output"]
+}, Open  ]],
+Cell[14888, 456, 1543, 48, 94, "Text"],
+Cell[16434, 506, 1826, 61, 145, "Text"],
+Cell[18263, 569, 412, 14, 32, "Text"],
+Cell[18678, 585, 414, 13, 32, "Text"],
+Cell[19095, 600, 475, 11, 71, "Text"],
+Cell[19573, 613, 414, 12, 32, "Input"],
+Cell[19990, 627, 638, 13, 70, "Text"],
+Cell[20631, 642, 296, 6, 50, "Text"],
+Cell[20930, 650, 455, 13, 51, "Text"],
+Cell[21388, 665, 443, 8, 31, "Text"],
+Cell[CellGroupData[{
+Cell[21856, 677, 275, 8, 32, "Input"],
+Cell[22134, 687, 166, 3, 32, "Output"]
+}, Open  ]],
+Cell[22315, 693, 192, 4, 30, "Text"],
+Cell[22510, 699, 424, 11, 32, "Input"],
+Cell[22937, 712, 655, 20, 51, "Text"],
+Cell[23595, 734, 688, 18, 71, "Text"]
+}
+]
+*)
+
